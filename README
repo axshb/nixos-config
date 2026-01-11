@@ -1,4 +1,4 @@
-nixos everforest dotfiles
+nixos atelier savanna dark dotfiles
 with labwc (a wlroots stacking compositor)
 
 main packages:
