@@ -1,0 +1,13 @@
+profile dual_monitor {
+    # Main Monitor: 1440p @ 180Hz (Left)
+    output "DP-1" {
+        mode 2560x1440@180Hz
+        position 0,0
+    }
+
+    # Secondary Monitor: 1080p @ 100Hz (Right)
+    output "HDMI-A-1" {
+        mode 1920x1080@100Hz
+        position 2560,0
+    }
+}

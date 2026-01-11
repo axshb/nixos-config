@@ -1,0 +1,34 @@
+# Kanagawa Theme for labwc
+window.active.title.bg: flat solid
+window.active.title.bg.color: #1f1f28
+window.active.label.text.color: #dcd7ba
+window.inactive.title.bg: flat solid
+window.inactive.title.bg.color: #16161d
+window.inactive.label.text.color: #727169
+
+# Titlebar height and alignment
+window.label.text.justify: center
+menu.items.font: sans:size=10
+window.title.font: sans:bold:size=10
+
+# The Alt-Tab Switcher (OSD)
+osd.bg: flat solid
+osd.bg.color: #1f1f28
+osd.label.text.color: #dcd7ba
+osd.border.color: #7aa89f
+osd.hilight.bg: #2a2a37
+osd.hilight.label.text.color: #ffa066
+
+# Borders (The "Tiler" look)
+window.active.border.color: #dcd7ba
+window.inactive.border.color: #1f1f28
+border.width: 4
+padding.width: 1
+
+# Button Colors (Active Window)
+window.active.button.unpressed.image.color: #dcd7ba
+window.active.button.pressed.image.color: #7aa89f
+window.active.button.hover.image.color: #ffa066
+
+# Button Colors (Inactive Window)
+window.inactive.button.unpressed.image.color: #727169

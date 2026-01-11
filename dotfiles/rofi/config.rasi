@@ -1,0 +1,140 @@
+/*****----- Configuration -----*****/
+configuration {
+    modi:                       "drun";
+    show-icons:                  true;
+    display-drun:               "";
+    drun-display-format:        "{name}";
+    font:                       "Noto Sans Mono 11";
+}
+
+/*****----- Global Properties -----*****/
+* {
+    /* Atelier Savanna Palette */
+    background:                  #171c19;
+    background-alt:              #232a25cc; /* Transparent secondary */
+    foreground:                  #87928a;
+    selected:                    #489963;   /* Refreshing Moss Green */
+    active:                      #478c90;   /* Forest Teal */
+    urgent:                      #b16139;   /* Burnt Orange */
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    width:                       600px;
+    enabled:                     true;
+    border:                      1px;
+    border-color:                @selected;
+    border-radius:               12px;
+    background-color:            @background;
+    cursor:                      "default";
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listbox" ];
+}
+
+listbox {
+    spacing:                     0px;
+    padding:                     10px;
+    background-color:            transparent;
+    children:                    [ "listview" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                     true;
+    padding:                     100px 40px 40px 40px; 
+    background-color:            transparent;
+    background-image:            url("~/.config/rofi/banner.png", width);
+    border-radius:               12px 12px 0px 0px;
+    text-color:                  @foreground;
+    orientation:                 horizontal;
+    children:                    [ "textbox-prompt-colon", "entry" ];
+    spacing:                     15px;
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         "";
+    padding:                     12px 18px;
+    border-radius:               8px;
+    background-color:            @background-alt;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+}
+
+entry {
+    enabled:                     true;
+    expand:                      true;
+    padding:                     12px 16px;
+    border-radius:               8px;
+    background-color:            @background-alt;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "Search...";
+    placeholder-color:           inherit;
+    vertical-align:              0.5;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       6;
+    cycle:                       true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    /* This section removes the dotted line/separator */
+    border:                      0px;
+    spacing:                     5px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    spacing:                     15px;
+    padding:                     10px;
+    border-radius:               8px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color:            transparent;
+    text-color:                  @foreground;
+}
+
+element selected.normal {
+    background-color:            @selected;
+    text-color:                  #171c19; /* High contrast dark text on green bar */
+}
+
+element-icon {
+    background-color:            transparent;
+    size:                        28px;
+    cursor:                      inherit;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}

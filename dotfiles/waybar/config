@@ -1,0 +1,26 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 40, 
+    "modules-left": ["wlr/taskbar"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray"],
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "icon-size": 24, 
+        "tooltip": true
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": "{:%a %d %b %H:%M:%S}",
+        "tooltip-format": "<tt>{calendar}</tt>"
+    },
+
+    "tray": {
+        "icon-size": 22,
+        "spacing": 12
+    }
+}

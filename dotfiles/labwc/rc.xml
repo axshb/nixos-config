@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<labwc_config>
+
+  <core>
+    <gap>12</gap>
+    <margins>
+      <top>15</top>
+      <bottom>15</bottom>
+      <left>15</left>
+      <right>15</right>
+    </margins>
+  </core>
+
+  <theme>
+    <name>Atelier-Savanna</name>
+    <cornerRadius>8</cornerRadius>
+    <font place="ActiveWindow">
+      <name>Sans</name>
+      <size>10</size>
+      <weight>Bold</weight>
+    </font>
+    <theme>
+      <dropShadows>yes</dropShadows>
+      <dropShadowsOnTiled>yes</dropShadowsOnTiled>
+    	</theme>
+  </theme>
+
+  <windowSwitcher showText="yes" showIcon="yes" preview="yes" outline="yes" />
+
+  <windowRules>
+    <windowRule identifier="*" serverSideDecoration="yes" />
+
+    </windowRules>
+
+  <keyboard>
+    <default />
+    <keybind key="W-Return"><action name="Execute" command="kitty" /></keybind>
+    <keybind key="W-e"><action name="Execute" command="kitty yazi" /></keybind>
+    <keybind key="W-q"><action name="Close" /></keybind>
+    <keybind key="W-space"><action name="Execute" command="rofi -show drun" /></keybind>
+
+    <keybind key="W-Left">
+      <action name="SnapToEdge" direction="left" />
+    </keybind>
+    <keybind key="W-Right">
+      <action name="SnapToEdge" direction="right" />
+    </keybind>
+
+    <keybind key="W-S-Left">
+      <action name="MoveToOutput" direction="left" />
+    </keybind>
+    <keybind key="W-S-Right">
+      <action name="MoveToOutput" direction="right" />
+    </keybind>
+
+    <keybind key="W-f">
+      <action name="SnapToEdge" direction="center" />
+    </keybind>
+
+    <keybind key="W-S-s">
+      <action name="Execute">
+        <command>sh -c 'HYPRSHOT_DIR="$HOME/Pictures/Screenshots" hyprshot -m region'</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute"><command>wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+</command></action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute"><command>wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-</command></action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute"><command>wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle</command></action>
+    </keybind>
+
+  </keyboard>
+
+</labwc_config>

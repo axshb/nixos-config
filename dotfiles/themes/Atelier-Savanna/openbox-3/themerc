@@ -1,0 +1,20 @@
+# Atelier Savanna Labwc Theme
+
+# Active Window
+window.active.title.bg.color: #171c19
+window.active.label.text.color: #87928a
+window.active.button.unpressed.image.color: #87928a
+
+# Inactive Window
+window.inactive.title.bg.color: #171c19
+window.inactive.label.text.color: #5f6d64
+window.inactive.button.unpressed.image.color: #5f6d64
+
+# Borders - Using the Refreshing Green for the Active highlight
+window.active.border.color: #489963
+window.inactive.border.color: #232a25
+
+# Geometry
+border.width: 2
+padding.width: 4
+titlebar.height: 24

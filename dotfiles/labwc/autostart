@@ -1,0 +1,8 @@
+# applets/rice
+waybar & # bar
+mako & # notifs
+nm-applet & # wifi/network
+blueman-applet & # bluetooth
+kanshi & # displays
+swaybg -i /home/me/nixos-config/dotfiles/labwc/wallpaper.png &
+nwg-look -a &

@@ -1,0 +1,19 @@
+nixos everforest dotfiles
+with labwc (a wlroots stacking compositor)
+
+main packages:
+- btop (system monitor)
+- kanshi (monitor management)
+- kitty (terminal emulator)
+- labwc (wayland compositor)
+- mako (notification daemon)
+- rofi (launcher)
+- waybar (bar)
+- yazi (file manager)
+
+the other packages (system services, apps, etc) are in configuration.nix and home.nix for system and user packages respectively.
+
+to do:
+- better fastfetch
+- various electron apps that lost their theming after transitioning distros
+- zed theme

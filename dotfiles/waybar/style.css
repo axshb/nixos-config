@@ -1,0 +1,48 @@
+/* Atelier Savanna Palette */
+@define-color base      #171c19; /* background */
+@define-color surface   #232a25; /* background-alt / selection_background */
+@define-color selection #5f6d64; /* bright black / border-color */
+@define-color text      #87928a; /* foreground (the "white-ish" Rofi color) */
+@define-color accent    #489963; /* green - The Refreshing Moss */
+@define-color blue      #478c90; /* blue - Savanna Forest Teal */
+
+* {
+    font-family: "Noto Sans Mono", monospace;
+    font-size: 16px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: @base;
+    color: @text;
+    border-bottom: 2px solid @surface;
+}
+
+/* Increased padding for better spacing on large monitors */
+#taskbar, #clock, #tray {
+    padding: 0 20px; 
+    background-color: transparent;
+}
+
+#taskbar button {
+    padding: 0 10px;
+    color: @text;
+}
+
+#taskbar button.active {
+    background-color: @surface;
+    border-bottom: 3px solid @accent;
+}
+
+#clock {
+    background-color: transparent;
+    font-weight: bold;
+    color: @text; /* Swapped from @blue to @text for consistency with Rofi */
+    margin: 0;
+}
+
+#tray {
+    padding-right: 20px;
+}

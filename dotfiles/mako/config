@@ -1,0 +1,8 @@
+background-color=#1f1f28
+text-color=#dcd7ba
+border-color=#7e9cd8
+border-radius=4
+font=sans 10
+
+[urgency=high]
+border-color#c34043
