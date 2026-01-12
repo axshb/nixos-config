@@ -18,6 +18,5 @@ the other packages (system services, apps, etc) are in configuration.nix and hom
 ![nixos preview](./preview.png)
 
 ### to do:
-- better fastfetch
 - various electron apps that lost their theming after transitioning distros
 - zed theme
