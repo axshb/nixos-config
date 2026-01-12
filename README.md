@@ -1,11 +1,11 @@
-# nixos atelier savanna dark dotfiles
-## with labwc (a wlroots stacking compositor)
+# axshb's dotfiles
+### color scheme based on atelier savanna dark 
 
 ### main packages:
 - btop (system monitor)
 - kanshi (display management)
 - kitty (terminal emulator)
-- labwc (wayland compositor)
+- labwc (a wlroots stacking compositor)
 - mako (notification daemon)
 - rofi (launcher)
 - waybar (bar)
