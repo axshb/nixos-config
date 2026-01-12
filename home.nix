@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
-let 
+let
   secrets = import ./vars.nix;
 in
 {
@@ -32,6 +32,7 @@ in
     ".config/mako".source = ./dotfiles/mako;
     ".config/rofi".source = ./dotfiles/rofi;
     ".local/share/themes".source = ./dotfiles/themes;
+    ".config/fastfetch".source = ./dotfiles/fastfetch;
   };
 
   home.stateVersion = "24.11";

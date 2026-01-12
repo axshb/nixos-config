@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
-let 
+let
   secrets = import ./vars.nix;
 in
 {
   imports = [ ./hardware-configuration.nix ];
-  
+
   # ============================================================================
   # SYSTEM CORE
   # ============================================================================
@@ -26,14 +26,20 @@ in
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "nvidia_drm.fbdev=1" ];
+    # 3. disable wifi active state power management
+    # 4. disable wifi 6
+    # 4. turn off power saving on nm
+    # all to try to stabilize wifi connectivity under load
+    kernelParams = [ "nvidia_drm.fbdev=1" "pcie_aspm=off" "iwlwifi.disable_11ax=1" "iwlwifi.power_save=0" ];
   };
-  
+  # nm power management; also to fix unstable wifi under load.
+  networking.networkmanager.wifi.powersave = false;
+
   time.timeZone = secrets.timezone;
   i18n.defaultLocale = secrets.locale;
   nixpkgs.config.allowUnfree = true;
   hardware.uinput.enable = true;
-  
+
   # ============================================================================
   # NETWORKING & SECURITY
   # ============================================================================
@@ -53,7 +59,7 @@ in
       userServices = true;
     };
   };
-  
+
   # ============================================================================
   # HARDWARE & GRAPHICS (NVIDIA 4070 SUPER)
   # ============================================================================
@@ -65,7 +71,7 @@ in
     };
     nvidia = {
       modesetting.enable = true;
-      open = true; 
+      open = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
     bluetooth.enable = true;
@@ -78,7 +84,7 @@ in
   };
   services.blueman.enable = true;
   services.fwupd.enable = true;
-  
+
   # ============================================================================
   # SYSTEM SERVICES
   # ============================================================================
@@ -100,21 +106,21 @@ in
         };
     };
   };
-  
+
   # ============================================================================
   # DESKTOP ENVIRONMENT & GUI
   # ============================================================================
   xdg.portal = {
     enable = true;
-    extraPortals = [ 
-      pkgs.xdg-desktop-portal-wlr 
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
       pkgs.xdg-desktop-portal-gtk
      ];
     config.common.default = [ "wlr" "gtk" ];
     config.labwc.default = [ "wlr" "gtk" ];
   };
   environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1"; 
+    NIXOS_OZONE_WL = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
   };
   fonts.packages = with pkgs; [
@@ -122,21 +128,22 @@ in
     jetbrains-mono
     noto-fonts-color-emoji
   ];
-  
+
   # ============================================================================
   # REMOTE DESKTOP
   # ============================================================================
-  networking.firewall.allowedTCPPorts = [ 5900 ];
-  systemd.user.services.wayvnc = {
-    description = "WayVNC server for remote access";
-    after = [ "graphical-session.target" ];
-    wantedBy = [ "graphical-session.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.wayvnc}/bin/wayvnc --output HDMI-A-1 --render-cursor --gpu 0.0.0.0";
-      Restart = "on-failure";
-    };
+  # replacing wayvnc for sunshine
+  services.sunshine = {
+    enable = true;
+    autoStart = true;
+    capSysAdmin = true;
+    openFirewall = true;
   };
-  
+
+  services.udev.extraRules = ''
+    KERNEL=="uinput", MODE="0660", GROUP="input", SYMLINK+="uinput"
+  '';
+
   # ============================================================================
   # GAMING
   # ============================================================================
@@ -146,7 +153,7 @@ in
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
-  
+
   # ============================================================================
   # STORAGE & DRIVES
   # ============================================================================
@@ -155,13 +162,13 @@ in
     fsType = "ext4";
     options = [ "defaults" "nofail" ];
   };
-  
+
   fileSystems."${secrets.games_path}" = {
     device = "/dev/disk/by-label/${secrets.games_label}";
     fsType = "ext4";
     options = [ "defaults" "nofail" ];
   };
-  
+
   # ============================================================================
   # USER ACCOUNT & PACKAGES
   # ============================================================================
@@ -169,7 +176,7 @@ in
     enable = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
-    interactiveShellInit = "fastfetch"; 
+    interactiveShellInit = "fastfetch";
   };
   users.users.${secrets.username} = {
     isNormalUser = true;
@@ -178,7 +185,6 @@ in
   };
   environment.systemPackages = with pkgs; [
     git
-    wayvnc
   ];
   system.stateVersion = "24.11";
 }

@@ -1,19 +1,23 @@
-nixos atelier savanna dark dotfiles
-with labwc (a wlroots stacking compositor)
+# nixos atelier savanna dark dotfiles
+## with labwc (a wlroots stacking compositor)
 
-main packages:
+### main packages:
 - btop (system monitor)
-- kanshi (monitor management)
+- kanshi (display management)
 - kitty (terminal emulator)
 - labwc (wayland compositor)
 - mako (notification daemon)
 - rofi (launcher)
 - waybar (bar)
 - yazi (file manager)
+- fastfetch (fetch)
 
 the other packages (system services, apps, etc) are in configuration.nix and home.nix for system and user packages respectively.
 
-to do:
+### preview
+![nixos preview](./preview.png)
+
+### to do:
 - better fastfetch
 - various electron apps that lost their theming after transitioning distros
 - zed theme
