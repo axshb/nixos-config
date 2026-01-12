@@ -26,11 +26,16 @@ in
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
-    # 3. disable wifi active state power management
-    # 4. disable wifi 6
-    # 4. turn off power saving on nm
-    # all to try to stabilize wifi connectivity under load
-    kernelParams = [ "nvidia_drm.fbdev=1" "pcie_aspm=off" "iwlwifi.disable_11ax=1" "iwlwifi.power_save=0" ];
+    kernelParams = [
+      "nvidia_drm.fbdev=1"
+      # --- trying to fix wifi connectivity under load ---
+      "iwlwifi.swcrypto=1" # unhandled alg 0x707 and 0x703 error: move encryption from hardware to software
+      # wifi power management settings
+      "iwlwifi.power_save=0"
+      "iwlmvm.power_scheme=1" # (1 = acive/performance)
+      # turn off pcie power state management
+      "pcie_aspm=off"
+    ];
   };
   # nm power management; also to fix unstable wifi under load.
   networking.networkmanager.wifi.powersave = false;
@@ -112,6 +117,7 @@ in
   # ============================================================================
   xdg.portal = {
     enable = true;
+    wlr.enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-wlr
       pkgs.xdg-desktop-portal-gtk
