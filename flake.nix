@@ -7,9 +7,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, stylix, home-manager, ... }@inputs:
     let
       vars = import ./vars.nix;
     in {
@@ -22,9 +26,10 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            # change to "${vars.username}"
             home-manager.users.${vars.username} = import ./home.nix;
+            home-manager.backupFileExtension = "hm-backup";
           }
+          stylix.nixosModules.stylix
         ];
       };
     };

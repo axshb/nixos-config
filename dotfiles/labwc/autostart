@@ -1,7 +1,7 @@
-# applets/rice
+export GTK_THEME=Stylix
 waybar & # bar
 mako & # notifs
-nm-applet & # wifi/network
+nm-applet --indicator & # wifi/network
 blueman-applet & # bluetooth
 kanshi & # displays
 swaybg -i /home/me/nixos-config/dotfiles/labwc/wallpaper.png &

@@ -118,22 +118,47 @@ in
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-wlr
-      pkgs.xdg-desktop-portal-gtk
-     ];
-    config.common.default = [ "wlr" "gtk" ];
-    config.labwc.default = [ "wlr" "gtk" ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config = {
+      common = {
+        default = [ "gtk" ];
+        # wlr for screen sharing
+        "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
+      };
+      # override for when XDG_CURRENT_DESKTOP=labwc (or wlroots)
+      labwc = {
+        default = [ "gtk" ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
+      };
+    };
   };
+  
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
   };
+
   fonts.packages = with pkgs; [
     noto-fonts
     jetbrains-mono
     noto-fonts-color-emoji
   ];
+
+  stylix = {
+    enable = true;
+    image = ./preview.png;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-savanna.yaml";
+    targets.gtk.enable = true; 
+    targets.chromium.enable = false;
+    autoEnable = true;
+    cursor = {
+      package = pkgs.phinger-cursors;
+      name = "phinger-cursors-dark";
+      size = 24;
+    };
+  };
 
   # ============================================================================
   # REMOTE DESKTOP
@@ -191,6 +216,7 @@ in
   };
   environment.systemPackages = with pkgs; [
     git
+    wtype
   ];
   system.stateVersion = "24.11";
 }

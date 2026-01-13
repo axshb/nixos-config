@@ -4,7 +4,7 @@
     "height": 40, 
     "modules-left": ["wlr/taskbar"],
     "modules-center": ["clock"],
-    "modules-right": ["tray"],
+    "modules-right": ["tray", "custom/menu"],
 
     "wlr/taskbar": {
         "format": "{icon}",
@@ -22,5 +22,11 @@
     "tray": {
         "icon-size": 22,
         "spacing": 12
+    },
+
+    "custom/menu": {
+        "format": "☰",
+        "on-click": "wtype -M logo -k m",
+        "tooltip": false
     }
 }

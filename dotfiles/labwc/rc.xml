@@ -76,6 +76,10 @@
       </action>
     </keybind>
 
+    <keybind key="W-m">
+      <action name="ShowMenu" menu="root-menu"/>
+    </keybind>    
+
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute"><command>wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+</command></action>
     </keybind>
