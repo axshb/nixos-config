@@ -1,0 +1,26 @@
+# Zenwritten Dark Custom labwc Theme
+
+# Active Window
+window.active.title.bg.color: #191919
+window.active.label.text.color: #BBBBBB
+window.active.button.unpressed.image.color: #BBBBBB
+
+# Inactive Window
+window.inactive.title.bg.color: #191919
+window.inactive.label.text.color: #5f5f5f
+window.inactive.button.unpressed.image.color: #5f5f5f
+
+# Borders
+window.active.border.color: #404040
+window.inactive.border.color: #191919
+
+# Geometry
+border.width: 2
+padding.width: 4
+titlebar.height: 24
+
+# Root Menu
+menu.items.bg.color: #191919
+menu.items.text.color: #BBBBBB
+menu.items.active.bg.color: #404040
+menu.items.active.text.color: #BBBBBB

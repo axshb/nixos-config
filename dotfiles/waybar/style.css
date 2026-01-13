@@ -1,10 +1,11 @@
-/* Atelier Savanna Palette */
-@define-color base      #171c19; /* background */
-@define-color surface   #232a25; /* background-alt / selection_background */
-@define-color selection #5f6d64; /* bright black / border-color */
-@define-color text      #87928a; /* foreground (the "white-ish" Rofi color) */
-@define-color accent    #489963; /* green - The Refreshing Moss */
-@define-color blue      #478c90; /* blue - Savanna Forest Teal */
+/* Zenwritten Dark Palette */
+@define-color base      #191919; /* background */
+@define-color surface   #303030; /* background-alt / inactive_tab_background */
+@define-color selection #404040; /* selection_background */
+@define-color text      #BBBBBB; /* foreground */
+@define-color accent    #C9C9C9; /* Cursor Color - Used for active highlights */
+@define-color metal     #8E8E8E; /* color15 - Used for borders */
+@define-color blue      #6099C0; /* Zenwritten Blue - Optional accent */
 
 * {
     font-family: "Noto Sans Mono", monospace;
@@ -28,18 +29,19 @@ window#waybar {
 
 #taskbar button {
     padding: 0 10px;
-    color: @text;
+    color: @metal; /* Dimmed text for inactive windows */
 }
 
 #taskbar button.active {
     background-color: @surface;
-    border-bottom: 3px solid @accent;
+    color: @text;
+    border-bottom: 3px solid @accent; /* White/Silver underline */
 }
 
 #clock {
     background-color: transparent;
     font-weight: bold;
-    color: @text; /* Swapped from @blue to @text for consistency with Rofi */
+    color: @text; 
     margin: 0;
 }
 

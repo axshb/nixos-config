@@ -12,7 +12,7 @@
   </core>
 
   <theme>
-    <name>Atelier-Savanna</name>
+    <name>Custom-Theme</name>
     <cornerRadius>8</cornerRadius>
     <font place="ActiveWindow">
       <name>Noto Sans Mono</name>

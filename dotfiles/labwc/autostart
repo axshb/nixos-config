@@ -1,3 +1,4 @@
+export XDG_CURRENT_DESKTOP=COSMIC
 export GTK_THEME=Stylix
 waybar & # bar
 mako & # notifs
@@ -5,4 +6,6 @@ nm-applet --indicator & # wifi/network
 blueman-applet & # bluetooth
 kanshi & # displays
 swaybg -i /home/me/nixos-config/dotfiles/labwc/wallpaper.png &
-nwg-look -a &
+
+cosmic-settings-daemon &
+cosmic-osd &

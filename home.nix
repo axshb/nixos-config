@@ -33,7 +33,7 @@ in
     ".config/kanshi".source = ./dotfiles/kanshi;
     ".config/mako".source = ./dotfiles/mako;
     ".config/rofi".source = ./dotfiles/rofi;
-    ".local/share/themes/Atelier-Savanna".source = ./dotfiles/themes/Atelier-Savanna; # labwc theme
+    ".local/share/themes/Custom-Theme".source = ./dotfiles/themes/Custom-Theme; # labwc theme
     ".config/fastfetch".source = ./dotfiles/fastfetch;
   };
 

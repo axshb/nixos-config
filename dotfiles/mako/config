@@ -1,8 +1,30 @@
-background-color=#1f1f28
-text-color=#dcd7ba
-border-color=#7e9cd8
-border-radius=4
-font=sans 10
+# --- Mako Zenwritten Config ---
+max-history=100
+sort=-time
+
+# Visuals
+font=Noto Sans Mono 10
+width=300
+height=150
+margin=20
+padding=15
+border-size=2
+border-radius=0
+
+# Zenwritten Colors
+# Background: #191919
+background-color=#191919ff
+# Text: #BBBBBB
+text-color=#BBBBBBff
+# Border: #8E8E8E (Bright Grey/Metal)
+border-color=#8E8E8Eff
+# Progress: #404040 (Selection Grey)
+progress-color=over #404040ff
+
+# Interaction
+default-timeout=5000
+ignore-timeout=1
 
 [urgency=high]
-border-color#c34043
+# Zenwritten Red (#DE6E7C)
+border-color=#DE6E7Cff

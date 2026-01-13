@@ -96,39 +96,19 @@ in
   services.udisks2.enable = true;
   security.pam.services.${secrets.username}.enableGnomeKeyring = true;
 
-  systemd = {
-    user.services.polkit-gnome-authentication-agent-1 = {
-      description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-      serviceConfig = {
-          Type = "simple";
-          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-          Restart = "on-failure";
-          RestartSec = 1;
-          TimeoutStopSec = 10;
-        };
-    };
-  };
-
   # ============================================================================
   # DESKTOP ENVIRONMENT & GUI
   # ============================================================================
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    wlr.enable = true; 
+    extraPortals = [ 
+      pkgs.xdg-desktop-portal-cosmic 
+      pkgs.xdg-desktop-portal-gtk 
+    ];
     config = {
       common = {
-        default = [ "gtk" ];
-        # wlr for screen sharing
-        "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
-        "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
-      };
-      # override for when XDG_CURRENT_DESKTOP=labwc (or wlroots)
-      labwc = {
-        default = [ "gtk" ];
+        default = [ "cosmic" "gtk" ];
         "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
         "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
       };
@@ -149,7 +129,25 @@ in
   stylix = {
     enable = true;
     image = ./preview.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-savanna.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-savanna.yaml";
+    base16Scheme = {
+      base00 = "191919"; # Background
+      base01 = "242424"; # Lighter Background
+      base02 = "353535"; # Selection Background
+      base03 = "464646"; # Comments
+      base04 = "5e5e5e"; # Dark Foreground
+      base05 = "9d9d9d"; # Default Foreground
+      base06 = "b1b1b1"; # Light Foreground
+      base07 = "eeeeee"; # Lightest Foreground
+      base08 = "e35535"; # Red
+      base09 = "e8851a"; # Orange
+      base0A = "90a020"; # Yellow
+      base0B = "2c9431"; # Green
+      base0C = "3da69e"; # Cyan
+      base0D = "4180d1"; # Blue
+      base0E = "985ec9"; # Magenta
+      base0F = "915042"; # Brown
+    };
     targets.gtk.enable = true; 
     targets.chromium.enable = false;
     autoEnable = true;
@@ -217,6 +215,12 @@ in
   environment.systemPackages = with pkgs; [
     git
     wtype
+    # The Core Suite
+    cosmic-files
+    cosmic-settings
+    cosmic-settings-daemon
+    cosmic-osd
+    cosmic-randr
   ];
   system.stateVersion = "24.11";
 }
