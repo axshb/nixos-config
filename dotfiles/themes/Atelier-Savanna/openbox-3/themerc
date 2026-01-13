@@ -10,7 +10,7 @@ window.inactive.title.bg.color: #171c19
 window.inactive.label.text.color: #5f6d64
 window.inactive.button.unpressed.image.color: #5f6d64
 
-# Borders - Using the Refreshing Green for the Active highlight
+# Borders
 window.active.border.color: #489963
 window.inactive.border.color: #232a25
 
@@ -18,3 +18,9 @@ window.inactive.border.color: #232a25
 border.width: 2
 padding.width: 4
 titlebar.height: 24
+
+# Root Menu
+menu.items.bg.color: #171c19
+menu.items.text.color: #87928a
+menu.items.active.bg.color: #489963
+menu.items.active.text.color: #171c19

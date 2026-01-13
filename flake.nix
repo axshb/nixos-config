@@ -22,7 +22,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            # Change "arsh" to "${vars.username}"
+            # change to "${vars.username}"
             home-manager.users.${vars.username} = import ./home.nix;
           }
         ];

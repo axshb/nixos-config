@@ -10,13 +10,13 @@ in
 
   home.packages = with pkgs; [
     # Apps
-    brave vscode vesktop spotify qimgv mullvad-vpn zed-editor zathura
+    brave vscode vesktop spotify qimgv mullvad-vpn zathura
     polkit_gnome nwg-look libnotify
     # CLI
     kitty micro yazi btop fastfetch
     # Desktop
     labwc waybar mako swaybg hyprshot wl-clipboard
-    wlr-randr networkmanagerapplet kanshi rofi
+    wlr-randr networkmanagerapplet kanshi rofi labwc-menu-generator
     # Gaming / ML / Themes
     protonup-qt xivlauncher fflogs koboldcpp papirus-icon-theme kanagawa-gtk-theme
   ];

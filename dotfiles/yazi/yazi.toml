@@ -3,19 +3,19 @@
 # ==============================================================================
 [opener]
 edit = [
-	{ run = 'zeditor --wait "$@"', block = true, desc = "Zed" }
+	{ run = 'code "$@"', block = true, desc = "VS Code" }
 ]
 
 view = [
-	{ run = 'qimgv "$@"', orphan = true, desc = "qimgv" }
+	{ run = 'qimgv "$@"', orphan = false, desc = "qimgv" }
 ]
 
 play = [
-	{ run = 'mpv "$@"', orphan = true, desc = "qimgv" }
+	{ run = 'mpv "$@"', orphan = false, desc = "qimgv" }
 ]
 
 docs = [
-	{ run = 'zathura "$@"', orphan = true, desc = "Zathura" }
+	{ run = 'zathura "$@"', orphan = false, desc = "Zathura" }
 ]
 
 [open]

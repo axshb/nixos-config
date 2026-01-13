@@ -15,9 +15,22 @@
     <name>Atelier-Savanna</name>
     <cornerRadius>8</cornerRadius>
     <font place="ActiveWindow">
-      <name>Sans</name>
+      <name>Noto Sans Mono</name>
       <size>10</size>
       <weight>Bold</weight>
+    </font>
+    <font place="InactiveWindow">
+      <name>Noto Sans Mono</name>
+      <size>10</size>
+    </font>
+    <font place="MenuHeader">
+      <name>Noto Sans Mono</name>
+      <size>11</size>
+      <weight>Bold</weight>
+    </font>
+    <font place="MenuItem">
+      <name>Noto Sans Mono</name>
+      <size>10</size>
     </font>
     <theme>
       <dropShadows>yes</dropShadows>
