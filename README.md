@@ -1,5 +1,5 @@
 # axshb's dotfiles
-### color scheme based on atelier savanna dark 
+### color scheme based on cherry midnight
 
 ### main packages:
 - btop (system monitor)
