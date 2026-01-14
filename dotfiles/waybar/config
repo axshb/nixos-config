@@ -17,7 +17,7 @@
     },
 
     "hyprland/window": {
-        "format": "DATA_STRM: {title}",
+        "format": "{title}",
         "max-length": 30,
         "separate-outputs": true
     },
