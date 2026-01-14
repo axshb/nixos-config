@@ -18,8 +18,5 @@ the other packages (system services, apps, etc) are in configuration.nix and hom
 ![nixos preview](./preview.png)
 
 ### to do
-- refine waybar margins for new menu
-- gtk theme font fix
-- fix polkit
-- fix mako
-- remove qt theme stuff
+- update mako & gtk themes
+- ...
