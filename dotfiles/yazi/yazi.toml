@@ -7,7 +7,7 @@ edit = [
 ]
 
 view = [
-	{ run = 'qimgv "$@"', orphan = false, desc = "qimgv" }
+	{ run = 'okular "$@"', orphan = false, desc = "Okular" }
 ]
 
 play = [
@@ -15,7 +15,7 @@ play = [
 ]
 
 docs = [
-	{ run = 'zathura "$@"', orphan = false, desc = "Zathura" }
+	{ run = 'okular "$@"', orphan = false, desc = "Okular" }
 ]
 
 [open]

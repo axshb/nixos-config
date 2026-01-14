@@ -9,14 +9,13 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    /* Zenwritten Dark Palette */
-    background:                  #191919;
-    background-alt:              #303030cc; /* Transparent Inactive Tab Color */
-    foreground:                  #BBBBBB;
-    selected:                    #404040;   /* Selection Background */
-    active:                      #6099C0;   /* Zenwritten Blue */
-    urgent:                      #DE6E7C;   /* Zenwritten Red */
-    border-col:                  #8E8E8E;   /* Metal/Silver Border */
+    /* Cherry Midnight Palette */
+    background:                  #101017;
+    background-alt:              #33333fcc; 
+    foreground:                  #bdc3df;
+    selected:                    #33333f;   
+    accent:                      #ff568e;   
+    border-col:                  #33333f;   
 }
 
 /*****----- Main Window -----*****/
@@ -28,9 +27,8 @@ window {
     enabled:                     true;
     border:                      1px;
     border-color:                @border-col;
-    border-radius:               12px;
+    border-radius:               0px;
     background-color:            @background;
-    cursor:                      "default";
 }
 
 /*****----- Main Box -----*****/
@@ -43,7 +41,7 @@ mainbox {
 
 listbox {
     spacing:                     0px;
-    padding:                     10px;
+    padding:                     10px 15px 15px 15px; /* Tighter top padding */
     background-color:            transparent;
     children:                    [ "listview" ];
 }
@@ -51,37 +49,39 @@ listbox {
 /*****----- Inputbar -----*****/
 inputbar {
     enabled:                     true;
-    padding:                     100px 40px 40px 40px; 
-    background-color:            transparent;
-    background-image:            url("~/.config/rofi/banner.png", width);
-    border-radius:               12px 12px 0px 0px;
+    /* Dramatically reduced padding: top/bottom 20px, sides 40px */
+    padding:                     25px 40px; 
+    background-color:            @background;
+    /* Removed background-image */
     text-color:                  @foreground;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry" ];
-    spacing:                     15px;
+    spacing:                     10px;
+    
+    /* Subtle separation line between input and list */
+    border:                      0px 0px 1px 0px;
+    border-color:                @background-alt;
 }
 
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    str:                         "";
-    padding:                     12px 18px;
-    border-radius:               8px;
-    background-color:            @background-alt;
-    text-color:                  inherit;
+    str:                         ">";  /* Simplified prompt */
+    padding:                     0px;
+    background-color:            transparent;
+    text-color:                  @accent; 
     vertical-align:              0.5;
+    font:                        "Noto Sans Mono Bold 14"; /* Bigger prompt for visibility */
 }
 
 entry {
     enabled:                     true;
     expand:                      true;
-    padding:                     12px 16px;
-    border-radius:               8px;
-    background-color:            @background-alt;
+    background-color:            transparent; /* Typing directly into the background */
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search...";
-    placeholder-color:           inherit;
+    placeholder:                 "";
+    placeholder-color:           #33333f; /* Muted placeholder */
     vertical-align:              0.5;
 }
 
@@ -89,29 +89,25 @@ entry {
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       6;
+    lines:                       8; /* Increased lines since height was saved from the banner */
     cycle:                       true;
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
     fixed-height:                true;
-    fixed-columns:               true;
     
     border:                      0px;
-    spacing:                     5px;
+    spacing:                     2px; /* Tighter list */
     background-color:            transparent;
     text-color:                  @foreground;
 }
 
 /*****----- Elements -----*****/
 element {
-    enabled:                     true;
-    spacing:                     15px;
-    padding:                     10px;
-    border-radius:               8px;
+    padding:                     8px 12px;
+    border-radius:               0px;
     background-color:            transparent;
     text-color:                  @foreground;
-    cursor:                      pointer;
 }
 
 element normal.normal,
@@ -122,21 +118,15 @@ element alternate.normal {
 
 element selected.normal {
     background-color:            @selected;
-    text-color:                  @foreground; /* Keep bone-white text even on selection */
-    border:                      1px solid;   /* Optional: Add a subtle border to selection */
-    border-color:                @border-col;
+    text-color:                  @foreground;
+    border:                      0px 0px 0px 4px; 
+    border-color:                @accent;
 }
 
 element-icon {
-    background-color:            transparent;
-    size:                        28px;
-    cursor:                      inherit;
+    size:                        22px; /* Slightly smaller icons for a cleaner look */
 }
 
 element-text {
-    background-color:            transparent;
-    text-color:                  inherit;
-    cursor:                      inherit;
     vertical-align:              0.5;
-    horizontal-align:            0.0;
 }

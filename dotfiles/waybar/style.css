@@ -1,63 +1,52 @@
-/* Zenwritten Dark Palette */
-@define-color base      #191919; /* background */
-@define-color surface   #303030; /* background-alt / inactive_tab_background */
-@define-color selection #404040; /* selection_background */
-@define-color text      #BBBBBB; /* foreground */
-@define-color accent    #C9C9C9; /* Cursor Color - Used for active highlights */
-@define-color metal     #8E8E8E; /* color15 - Used for borders */
-@define-color blue      #6099C0; /* Zenwritten Blue - Optional accent */
+@define-color bg #101017;
+@define-color fg #bdc3df;
+@define-color cherry #ff568e;
+@define-color stone #33333f;
 
 * {
-    font-family: "Noto Sans Mono", monospace;
-    font-size: 16px;
+    font-family: "Noto Sans Mono";
+    font-size: 14px; 
     border: none;
     border-radius: 0;
-    min-height: 0;
 }
 
 window#waybar {
-    background-color: @base;
-    color: @text;
-    border-bottom: 2px solid @surface;
+    background: transparent;
 }
 
-/* Increased padding for better spacing on large monitors */
-#taskbar, #clock, #tray {
-    padding: 0 20px; 
-    background-color: transparent;
+#workspaces, #clock, #window, #custom-nvidia, #cpu, #memory, #tray {
+    background-color: @bg;
+    color: @fg;
+    padding: 0 20px;
+    border: 1px solid @stone;
+    margin: 0 5px;
 }
 
-#taskbar button {
+#workspaces button {
+    color: @fg;
     padding: 0 10px;
-    color: @metal; /* Dimmed text for inactive windows */
 }
 
-#taskbar button.active {
-    background-color: @surface;
-    color: @text;
-    border-bottom: 3px solid @accent; /* White/Silver underline */
+#workspaces button.active {
+    color: @cherry;
+    border-bottom: 3px solid @cherry;
+}
+
+#window {
+    font-size: 14px;
+    border-left: 3px solid @cherry;
+    color: @fg;
+}
+
+#custom-nvidia, #cpu, #memory {
+    font-size: 15px;
+    font-weight: bold;
 }
 
 #clock {
-    background-color: transparent;
-    font-weight: bold;
-    color: @text; 
-    margin: 0;
+    border-bottom: 2px solid @fg; 
 }
 
 #tray {
-    padding-right: 20px;
-}
-
-#custom-menu {
-    background: @theme_bg_color;
-    color: @theme_fg_color;
-    padding: 0 10px;
-    margin: 4px;
-    border-radius: 4px;
-}
-
-#custom-menu:hover {
-    background: @theme_selected_bg_color;
-    color: @theme_selected_fg_color;
+    margin-right: 0;
 }

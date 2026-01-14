@@ -10,18 +10,19 @@ in
 
   home.packages = with pkgs; [
     # Apps
-    brave vscode vesktop spotify qimgv mullvad-vpn zathura
-    polkit_gnome
+    brave vscode vesktop spotify mullvad-vpn kdePackages.okular
+    qimgv polkit_gnome
     # CLI
     kitty micro yazi btop fastfetch
     # Desktop
     waybar mako swaybg hyprshot wl-clipboard
-    wlr-randr networkmanagerapplet kanshi rofi 
-    labwc pavucontrol wdisplays
+    kanshi rofi 
     # Gaming
     protonup-qt xivlauncher fflogs 
     # ML 
     koboldcpp 
+    # Cosmic
+    cosmic-settings cosmic-settings-daemon cosmic-osd cosmic-randr
   ];
 
   home.file = {
@@ -35,6 +36,7 @@ in
     ".config/rofi".source = ./dotfiles/rofi;
     ".local/share/themes/Custom-Theme".source = ./dotfiles/themes/Custom-Theme; # labwc theme
     ".config/fastfetch".source = ./dotfiles/fastfetch;
+    ".config/hypr".source = ./dotfiles/hypr;
   };
 
   home.stateVersion = "24.11";

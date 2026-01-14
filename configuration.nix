@@ -87,7 +87,6 @@ in
     alsa.enable = true;
     pulse.enable = true;
   };
-  services.blueman.enable = true;
   services.fwupd.enable = true;
 
   # ============================================================================
@@ -99,23 +98,32 @@ in
   # ============================================================================
   # DESKTOP ENVIRONMENT & GUI
   # ============================================================================
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true; 
+    xwayland.enable = true;
+  };
+  
   xdg.portal = {
     enable = true;
     wlr.enable = true; 
     extraPortals = [ 
-      pkgs.xdg-desktop-portal-cosmic 
+      pkgs.xdg-desktop-portal-cosmic
+      pkgs.xdg-desktop-portal-hyprland 
       pkgs.xdg-desktop-portal-gtk 
     ];
     config = {
       common = {
-        default = [ "cosmic" "gtk" ];
-        "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
-        "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
+        default = [ "cosmic" "hyprland" "gtk" ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
       };
     };
   };
   
   environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+  __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     NIXOS_OZONE_WL = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
   };
@@ -125,38 +133,6 @@ in
     jetbrains-mono
     noto-fonts-color-emoji
   ];
-
-  stylix = {
-    enable = true;
-    image = ./preview.png;
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-savanna.yaml";
-    base16Scheme = {
-      base00 = "191919"; # Background
-      base01 = "242424"; # Lighter Background
-      base02 = "353535"; # Selection Background
-      base03 = "464646"; # Comments
-      base04 = "5e5e5e"; # Dark Foreground
-      base05 = "9d9d9d"; # Default Foreground
-      base06 = "b1b1b1"; # Light Foreground
-      base07 = "eeeeee"; # Lightest Foreground
-      base08 = "e35535"; # Red
-      base09 = "e8851a"; # Orange
-      base0A = "90a020"; # Yellow
-      base0B = "2c9431"; # Green
-      base0C = "3da69e"; # Cyan
-      base0D = "4180d1"; # Blue
-      base0E = "985ec9"; # Magenta
-      base0F = "915042"; # Brown
-    };
-    targets.gtk.enable = true; 
-    targets.chromium.enable = false;
-    autoEnable = true;
-    cursor = {
-      package = pkgs.phinger-cursors;
-      name = "phinger-cursors-dark";
-      size = 24;
-    };
-  };
 
   # ============================================================================
   # REMOTE DESKTOP
@@ -214,13 +190,6 @@ in
   };
   environment.systemPackages = with pkgs; [
     git
-    wtype
-    # The Core Suite
-    cosmic-files
-    cosmic-settings
-    cosmic-settings-daemon
-    cosmic-osd
-    cosmic-randr
   ];
   system.stateVersion = "24.11";
 }
