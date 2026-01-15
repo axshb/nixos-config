@@ -37,6 +37,7 @@ in
     ".local/share/themes/Custom-Theme".source = ./dotfiles/themes/Custom-Theme; # labwc theme
     ".config/fastfetch".source = ./dotfiles/fastfetch;
     ".config/hypr".source = ./dotfiles/hypr;
+    ".config/niri".source = ./dotfiles/niri;
   };
 
   home.stateVersion = "24.11";
