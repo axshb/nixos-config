@@ -103,10 +103,6 @@ in
     withUWSM = true; 
     xwayland.enable = true;
   };
-
-  programs.niri = {
-    enable = true;
-  };
   
   xdg.portal = {
     enable = true;
@@ -115,13 +111,12 @@ in
       pkgs.xdg-desktop-portal-cosmic
       pkgs.xdg-desktop-portal-hyprland 
       pkgs.xdg-desktop-portal-gtk 
-      pkgs.xdg-desktop-portal-gnome 
     ];
     config = {
       common = {
         default = [ "cosmic" "gnome" "gtk" ];
-        "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
-        "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
       };
     };
   };

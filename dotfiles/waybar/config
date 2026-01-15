@@ -6,17 +6,17 @@
     "margin-left": 15,
     "margin-right": 15,
 
-    "modules-left": ["niri/window"],
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
     "modules-right": ["tray", "custom/nvidia", "cpu", "memory"],
 
-    "niri/workspaces": {
+    "hyprland/workspaces": {
         "format": "[{name}]",
         "on-click": "activate",
         "all-outputs": true
     },
 
-    "niri/window": {
+    "hyprland/window": {
         "format": "{title}",
         "max-length": 30,
         "separate-outputs": true

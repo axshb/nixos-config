@@ -46,6 +46,8 @@ layout {
     }
 }
 
+prefer-no-csd true
+
 spawn-at-startup "waybar"
 spawn-at-startup "mako"
 spawn-at-startup "kanshi"
