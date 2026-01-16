@@ -1,10 +1,14 @@
 { config, pkgs, ... }:
 let
   secrets = import ./vars.nix;
+  dotfilesPath = "/home/${secrets.username}/nixos-config/dotfiles";
+  mkLink = path: config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/${path}";  
 in
 {
   home.username = secrets.username;
   home.homeDirectory = "/home/${secrets.username}";
+
+  imports = [ ./nixvim.nix ];
 
   programs.home-manager.enable = true;
 
@@ -13,7 +17,7 @@ in
     brave vscode vesktop spotify mullvad-vpn kdePackages.okular
     qimgv polkit_gnome
     # CLI
-    kitty micro yazi btop fastfetch
+    kitty yazi btop fastfetch helix
     # Desktop
     waybar mako swaybg hyprshot wl-clipboard
     kanshi rofi 
@@ -25,19 +29,21 @@ in
     cosmic-settings cosmic-settings-daemon cosmic-osd cosmic-randr
   ];
 
+  
   home.file = {
-    ".config/waybar".source = ./dotfiles/waybar;
-    ".config/labwc".source = ./dotfiles/labwc;
-    ".config/kitty".source = ./dotfiles/kitty;
-    ".config/yazi".source = ./dotfiles/yazi;
-    ".config/btop".source = ./dotfiles/btop;
-    ".config/kanshi".source = ./dotfiles/kanshi;
-    ".config/mako".source = ./dotfiles/mako;
-    ".config/rofi".source = ./dotfiles/rofi;
-    ".local/share/themes/Custom-Theme".source = ./dotfiles/themes/Custom-Theme; # labwc theme
-    ".config/fastfetch".source = ./dotfiles/fastfetch;
-    ".config/hypr".source = ./dotfiles/hypr;
-    ".config/niri".source = ./dotfiles/niri;
+    ".config/waybar".source = mkLink "waybar";
+    ".config/labwc".source = mkLink "labwc";
+    ".config/kitty".source = mkLink "kitty";
+    ".config/yazi".source = mkLink "yazi";
+    ".config/btop".source = mkLink "btop";
+    ".config/kanshi".source = mkLink "kanshi";
+    ".config/mako".source = mkLink "mako";
+    ".config/rofi".source = mkLink "rofi";
+    ".local/share/themes/Custom-Theme".source = mkLink "themes/Custom-Theme";
+    ".config/fastfetch".source = mkLink "fastfetch";
+    ".config/hypr".source = mkLink "hypr";
+    ".config/niri".source = mkLink "niri";
+    ".config/helix".source = mkLink "helix";
   };
 
   home.stateVersion = "24.11";

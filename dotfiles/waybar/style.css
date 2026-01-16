@@ -1,7 +1,9 @@
-@define-color bg #101017;
-@define-color fg #bdc3df;
-@define-color cherry #ff568e;
-@define-color stone #33333f;
+/* Gruvbox Material Dark Hard Palette */
+@define-color bg      #1d2021; /* Background */
+@define-color fg      #d4be98; /* Foreground */
+@define-color cherry  #ea6962; /* Red (Replacing Cherry) */
+@define-color stone   #3c3836; /* Darker Gray (Replacing Stone) */
+@define-color yellow  #d8a657; /* Yellow for accents */
 
 * {
     font-family: "Noto Sans Mono";
@@ -41,10 +43,12 @@ window#waybar {
 #custom-nvidia, #cpu, #memory {
     font-size: 15px;
     font-weight: bold;
+    color: #a9b665; /* Using the Gruvbox Green for these stats */
 }
 
 #clock {
-    border-bottom: 2px solid @fg; 
+    border-bottom: 2px solid @yellow; /* Changed to Yellow for a nice contrast */
+    color: @fg;
 }
 
 #tray {

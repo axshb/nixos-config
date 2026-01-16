@@ -1,4 +1,4 @@
-# --- Mako Zenwritten Config ---
+# --- Gruvbox Material Dark Hard Config ---
 max-history=100
 sort=-time
 
@@ -11,20 +11,17 @@ padding=15
 border-size=2
 border-radius=0
 
-# Zenwritten Colors
-# Background: #191919
-background-color=#191919ff
-# Text: #BBBBBB
-text-color=#BBBBBBff
-# Border: #8E8E8E (Bright Grey/Metal)
-border-color=#8E8E8Eff
-# Progress: #404040 (Selection Grey)
-progress-color=over #404040ff
+# Colors
+background-color=#1d2021ff
+text-color=#d4be98ff
+border-color=#3c3836ff
+progress-color=over #504945ff
 
 # Interaction
 default-timeout=5000
 ignore-timeout=1
 
 [urgency=high]
-# Zenwritten Red (#DE6E7C)
-border-color=#DE6E7Cff
+# Gruvbox Red
+border-color=#ea6962ff
+text-color=#ea6962ff

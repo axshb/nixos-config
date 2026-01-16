@@ -114,7 +114,7 @@ in
     ];
     config = {
       common = {
-        default = [ "cosmic" "gnome" "gtk" ];
+        default = [ "cosmic" "hyprland" "gtk" ];
         "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
         "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
       };

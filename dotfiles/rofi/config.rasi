@@ -1,4 +1,3 @@
-/*****----- Configuration -----*****/
 configuration {
     modi:                       "drun";
     show-icons:                  true;
@@ -7,18 +6,15 @@ configuration {
     font:                       "Noto Sans Mono 11";
 }
 
-/*****----- Global Properties -----*****/
 * {
-    /* Cherry Midnight Palette */
-    background:                  #101017;
-    background-alt:              #33333fcc; 
-    foreground:                  #bdc3df;
-    selected:                    #33333f;   
-    accent:                      #ff568e;   
-    border-col:                  #33333f;   
+    background:                  #1d2021;
+    background-alt:              #3c3836cc; 
+    foreground:                  #d4be98;
+    selected:                    #504945;   
+    accent:                      #ea6962;   
+    border-col:                  #3c3836;   
 }
 
-/*****----- Main Window -----*****/
 window {
     transparency:                "real";
     location:                    center;
@@ -31,7 +27,6 @@ window {
     background-color:            @background;
 }
 
-/*****----- Main Box -----*****/
 mainbox {
     enabled:                     true;
     spacing:                     0px;
@@ -41,24 +36,19 @@ mainbox {
 
 listbox {
     spacing:                     0px;
-    padding:                     10px 15px 15px 15px; /* Tighter top padding */
+    padding:                     10px 15px 15px 15px;
     background-color:            transparent;
     children:                    [ "listview" ];
 }
 
-/*****----- Inputbar -----*****/
 inputbar {
     enabled:                     true;
-    /* Dramatically reduced padding: top/bottom 20px, sides 40px */
     padding:                     25px 40px; 
     background-color:            @background;
-    /* Removed background-image */
     text-color:                  @foreground;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry" ];
     spacing:                     10px;
-    
-    /* Subtle separation line between input and list */
     border:                      0px 0px 1px 0px;
     border-color:                @background-alt;
 }
@@ -66,43 +56,40 @@ inputbar {
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    str:                         ">";  /* Simplified prompt */
+    str:                         ">"; 
     padding:                     0px;
     background-color:            transparent;
     text-color:                  @accent; 
     vertical-align:              0.5;
-    font:                        "Noto Sans Mono Bold 14"; /* Bigger prompt for visibility */
+    font:                        "Noto Sans Mono Bold 14";
 }
 
 entry {
     enabled:                     true;
     expand:                      true;
-    background-color:            transparent; /* Typing directly into the background */
+    background-color:            transparent;
     text-color:                  inherit;
     cursor:                      text;
     placeholder:                 "";
-    placeholder-color:           #33333f; /* Muted placeholder */
+    placeholder-color:           #504945;
     vertical-align:              0.5;
 }
 
-/*****----- Listview -----*****/
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       8; /* Increased lines since height was saved from the banner */
+    lines:                       8;
     cycle:                       true;
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
     fixed-height:                true;
-    
     border:                      0px;
-    spacing:                     2px; /* Tighter list */
+    spacing:                     2px;
     background-color:            transparent;
     text-color:                  @foreground;
 }
 
-/*****----- Elements -----*****/
 element {
     padding:                     8px 12px;
     border-radius:               0px;
@@ -124,9 +111,10 @@ element selected.normal {
 }
 
 element-icon {
-    size:                        22px; /* Slightly smaller icons for a cleaner look */
+    size:                        22px;
 }
 
 element-text {
     vertical-align:              0.5;
+    text-color:                  inherit;
 }

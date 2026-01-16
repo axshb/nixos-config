@@ -1,0 +1,22 @@
+# Noirbuddy Oxide 
+"ui.background" = { bg = "#070e11" } # Background
+"ui.text" = "#d5d5d5" # Foreground
+"ui.cursor" = { fg = "#070e11", bg = "#00d992" } # Cursor (Oxide Green)
+"ui.selection" = { bg = "#323232" } # Tab Inactive
+
+"ui.statusline" = { fg = "#d5d5d5", bg = "#0e1618" } # Border color
+"ui.window" = { fg = "#0e1618" }
+"ui.help" = { bg = "#0e1618", fg = "#d5d5d5" }
+
+"info" = "#b0b0b0" # Color 4 (Blue/Grey)
+"error" = "#fa5e86" # Color 1 (Red)
+"warning" = "#ffffff" # Color 3 (Yellow/White)
+"hint" = "#00ff77" # Color 10 (Light Green)
+
+"keyword" = "#00d992" # Color 2 (Oxide Green)
+"variable" = "#d5d5d5" # Foreground
+"variable.builtin" = "#90a7f8" # Color 5 (Magenta/Blue)
+"constant" = "#ffffff" # Color 3
+"function" = "#00ff77" # Color 10
+"string" = "#00d992" # Color 2
+"comment" = "#737373" # Color 8 (Grey)

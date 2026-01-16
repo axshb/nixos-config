@@ -3,7 +3,7 @@
 # ==============================================================================
 [opener]
 edit = [
-	{ run = 'code "$@"', block = true, desc = "VS Code" }
+	{ run = 'hx "$@"', block = true, desc = "Helix" }
 ]
 
 view = [
@@ -11,7 +11,7 @@ view = [
 ]
 
 play = [
-	{ run = 'mpv "$@"', orphan = false, desc = "qimgv" }
+	{ run = 'mpv "$@"', orphan = false, desc = "mpv" }
 ]
 
 docs = [
@@ -20,7 +20,7 @@ docs = [
 
 [open]
 prepend_rules = [
-	# dirs (opens a whole folder in zed with O)
+	# dirs (opens a whole folder in helix with O)
 	{ name = "*/", use = [ "edit", "open" ] },
 
 	{ name = "*.nix", use = "edit" },
