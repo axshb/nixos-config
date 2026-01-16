@@ -25,6 +25,7 @@
       smartindent = true;
       cursorline = true;
       termguicolors = true;
+      clipboard = "unnamedplus";
     };
 
     plugins = {

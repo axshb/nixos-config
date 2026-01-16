@@ -17,7 +17,7 @@ in
     brave vscode vesktop spotify mullvad-vpn kdePackages.okular
     qimgv polkit_gnome
     # CLI
-    kitty yazi btop fastfetch helix
+    kitty yazi btop fastfetch 
     # Desktop
     waybar mako swaybg hyprshot wl-clipboard
     kanshi rofi 
